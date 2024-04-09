@@ -1,0 +1,2 @@
+sed '1d; /^$/d' players.ini | sort -b --field-separator='=' -k 2nr
+sed '1d; /^$/d' players.ini | sort -b --field-separator='=' -k 2nr

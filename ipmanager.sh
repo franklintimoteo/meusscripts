@@ -1,0 +1,17 @@
+
+
+
+# listar interfaces e seus ips coloridos
+
+# wlan1 - 192.168.0.27/26
+# eno1 - 192.168.0.15/26
+
+# listar dns ativos
+# DNS: 1.1.1.1,9.9.9.9
+
+# adicionar um novo ip a uma interface
+
+# dar um flush nas configurações para reiniciar o processo
+
+
+echo a: $1 b: $2 c: $3 d:$4

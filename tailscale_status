@@ -1,0 +1,5 @@
+#!/bin/bash
+#result="jq --unbuffered --compact-output -r '.Self.Online' <<< $(tailscale status --json)"
+result=$(/usr/bin/tailscale status --json | jq --unbuffered --compact-output -r '.Self.Online')
+
+[[ $result = "true" ]] && echo '{"alt": "on", "class": "on"}' || echo '{"alt": "off", "class": "off"}'

@@ -1,0 +1,7 @@
+dpkg-checkbuilddeps: error: Unmet build dependencies: dh-cargo (>= 25) librust-ansi-colours-1+default-dev librust-clap-2+color-dev librust-clap-2+default-dev librust-clap-2+suggestions-dev librust-clap-2+wrap-help-dev librust-dirs-4+default-dev librust-lazy-static-1+default-dev (>= 1.2-~~) librust-rust-embed-6+default-dev (>= 6.3-~~) librust-yaml-rust-0.4+default-dev
+
+libstd-rust-dev librust-ansi-colours-1+default-dev librust-clap-2+color-dev librust-clap-2+default-dev librust-clap-2+suggestions-dev librust-clap-2+wrap-help-dev librust-dirs-4+default-dev librust-lazy-static-1+default-dev (>= 1.2-~~) librust-rust-embed-6+default-dev (>= 6.3-~~) librust-yaml-rust-0.4+default-dev
+
+Reposta: sed s/ ([^()]*) / /g
+Reposta2: sed 's/ ([^()]*) / /g' <<< $(dpkg-checkbuilddeps 2>&1)
+Reposta3: sed 's/.*: //1; s/ ([^()]*) / /g' < remova-tudo-entre-parentesis

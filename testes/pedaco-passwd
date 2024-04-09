@@ -1,0 +1,8 @@
+franklin:x:1000:1000:franklin timoteo,,,:/home/franklin:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+sddm:x:107:114:Simple Desktop Display Manager:/var/lib/sddm:/bin/false
+Debian-exim:x:108:115::/var/spool/exim4:/usr/sbin/nologin
+dnsmasq:x:109:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+rtkit:x:110:116:RealtimeKit,,,:/proc:/usr/sbin/nologin
+pulse:x:111:117:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+usbmux:x:112:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
