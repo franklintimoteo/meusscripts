@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup Data
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup_selfhosted.sh
+
+[Install]
+WantedBy=multi-user.target
