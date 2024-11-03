@@ -12,8 +12,11 @@
 WORKDIR=/root
 FILENAME_BASE=backup
 
-# Caso o diretório de configurções já exista, envia para o tmp
-[[ -e ${WORKDIR}/DATA-BACKUP ]] && mv ${WORKDIR}/DATA-BACKUP /tmp
+# Apaga o diretório de configurações caso exista
+[[ -e ${WORKDIR}/DATA-BACKUP ]] && rm -r /tmp/DATA-BACKUP
+
+# Move os arquivos de backup anteriores
+mv ${WORKDIR}/DATA-BACKUP /tmp
 
 # tenta mover arquivos antigos para o tmp
 mv -f ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg} /tmp
