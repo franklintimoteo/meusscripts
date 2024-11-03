@@ -19,5 +19,5 @@ Copie o systemd timer, para programar o horário de backup
 
 
 Ative o systemd unit e timer
-`sudo systemctl enable --now backup_selfhosted.service
+`sudo systemctl enable --now backup_selfhosted.service`
 `sudo systemctl enable --now backup_selfhosted.timer`

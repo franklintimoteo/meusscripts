@@ -27,3 +27,4 @@ rclone copy ${WORKDIR}/bkp.tar.gz.gpg remote:backups-selfhosted
 
 # faz o mesmo com o checksum
 sha512sum ${WORKDIR}/bkp.tar.gz.gpg > ${WORKDIR}/checksum.sha512
+rclone copy ${WORKDIR}/checksum.sha512 remote:backups-selfhosted
