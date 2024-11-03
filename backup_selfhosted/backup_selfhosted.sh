@@ -13,7 +13,7 @@ WORKDIR=/root
 FILENAME_BASE=backup
 
 # Apaga o diretório de configurações caso exista
-[[ -e ${WORKDIR}/DATA-BACKUP ]] && rm -r /tmp/DATA-BACKUP
+[[ -e /tmp/DATA-BACKUP ]] && rm -r /tmp/DATA-BACKUP
 
 # Move os arquivos de backup anteriores
 mv ${WORKDIR}/DATA-BACKUP /tmp
