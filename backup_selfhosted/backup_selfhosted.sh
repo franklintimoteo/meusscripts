@@ -16,7 +16,7 @@ FILENAME_BASE=backup
 [[ -e ${WORKDIR}/DATA-BACKUP ]] && mv ${WORKDIR}/DATA-BACKUP /tmp
 
 # tenta mover arquivos antigos para o tmp
-mv ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg} /tmp
+mv -f ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg} /tmp
 
 # Copia configurações 
 cp -r /DATA ${WORKDIR}/DATA-BACKUP
