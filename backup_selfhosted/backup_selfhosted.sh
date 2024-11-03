@@ -15,8 +15,8 @@ FILENAME_BASE=backup
 # Caso o diretório de configurções já exista, envia para o tmp
 [[ -e ${WORKDIR}/DATA-BACKUP ]] && mv ${WORKDIR}/DATA-BACKUP /tmp
 
-# tenta copiar arquivos antigos para o tmp
-cp ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg} /tmp
+# tenta mover arquivos antigos para o tmp
+mv ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg} /tmp
 
 # Copia configurações 
 cp -r /DATA ${WORKDIR}/DATA-BACKUP
