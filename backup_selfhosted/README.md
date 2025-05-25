@@ -1,7 +1,8 @@
 Requesitos:
- - rclone
- - gpg
- - tar
+- rsync
+- rclone
+- gpg
+- tar
 
 Use em conjunto com o rquivo systemd unit. Dessa forma poderá ser feita automação de horário e data.
 
