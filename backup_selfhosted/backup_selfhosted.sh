@@ -12,17 +12,14 @@
 WORKDIR=/root
 FILENAME_BASE=backup
 
-# Apaga o diretório de configurações caso exista
-[[ -e /tmp/DATA-BACKUP ]] && rm -r /tmp/DATA-BACKUP
-
-# Move os arquivos de backup anteriores
-mv ${WORKDIR}/DATA-BACKUP /tmp
+# Limpa os arquivos de backup anteriores
+rm -rf ${WORKDIR}/DATA-BACKUP
 
 # tenta mover arquivos antigos para o tmp
-mv -f ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg} /tmp
+rm -rf ${WORKDIR}/${FILENAME_BASE}.tar.{gz,gz.gpg}
 
-# Copia configurações 
-cp -r /DATA ${WORKDIR}/DATA-BACKUP
+# Copia configurações usando rsync
+rsync -av /DATA/ ${WORKDIR}/DATA-BACKUP
 
 # Comprime todos diretórios
 tar -zcf ${WORKDIR}/${FILENAME_BASE}.tar.gz ${WORKDIR}/DATA-BACKUP
