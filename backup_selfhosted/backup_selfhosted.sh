@@ -24,12 +24,9 @@ rsync -av /DATA/ ${WORKDIR}/DATA-BACKUP
 # Comprime todos diretórios
 tar -zcf ${WORKDIR}/${FILENAME_BASE}.tar.gz ${WORKDIR}/DATA-BACKUP
 
-# Criptografa os arquivos antes de enviar
+# Criptografa e enviar os arquivos para nuvem
 rclone copy ${WORKDIR}/${FILENAME_BASE}.tar.gz remote2:backups-selfhosted
 
-# envia o arquivo comprimido e criptografado para o google driver
-rclone copy ${WORKDIR}/${FILENAME_BASE}.tar.gz.gpg remote:backups-selfhosted
-
 # envia o checksum mas sem criptografar
-sha512sum ${WORKDIR}/${FILENAME_BASE}.tar.gz.gpg > ${WORKDIR}/checksum.sha512
-rclone copy ${WORKDIR}/checksum.sha512 remote:backups-selfhosted
+sha512sum ${WORKDIR}/${FILENAME_BASE}.tar.gz > ${WORKDIR}/checksum.sha512
+rclone copy ${WORKDIR}/checksum.sha512 remote:/DATA-BACKUP/backups-selfhosted
