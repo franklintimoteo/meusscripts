@@ -24,14 +24,12 @@ rsync -av /DATA/ ${WORKDIR}/DATA-BACKUP
 # Comprime todos diretórios
 tar -zcf ${WORKDIR}/${FILENAME_BASE}.tar.gz ${WORKDIR}/DATA-BACKUP
 
-# Criptografa com a chave pública do GPG
-# lembrar de confiar na chave pública
-# caso contrário o gpg pedirá confirmação
-gpg --batch -r franklindev@disroot.org --encrypt ${WORKDIR}/${FILENAME_BASE}.tar.gz
+# Criptografa os arquivos antes de enviar
+rclone copy ${WORKDIR}/${FILENAME_BASE}.tar.gz remote2:backups-selfhosted
 
 # envia o arquivo comprimido e criptografado para o google driver
 rclone copy ${WORKDIR}/${FILENAME_BASE}.tar.gz.gpg remote:backups-selfhosted
 
-# faz o mesmo com o checksum
+# envia o checksum mas sem criptografar
 sha512sum ${WORKDIR}/${FILENAME_BASE}.tar.gz.gpg > ${WORKDIR}/checksum.sha512
 rclone copy ${WORKDIR}/checksum.sha512 remote:backups-selfhosted
